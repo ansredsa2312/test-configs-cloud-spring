@@ -1,0 +1,20 @@
+info:
+  app:
+    name: Request server.
+    description: Generates and refreshes JWTs.
+    version: 0.0.1
+    port: ${server.port}
+server:
+  port: ${PORT:0}
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    leaseRenewalIntervalInSeconds: 1
+    lease-expiration-duration-in-seconds: 1
+    preferIpAddress: true
+  client:
+    registryFetchIntervalSeconds: 1
+    fetchRegistry: true
+    healthcheck:
+      enabled: true
